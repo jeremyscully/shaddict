@@ -1,0 +1,15 @@
+sp_UpsertVendor Definition:
+Definition                                                                                                                                                                                                                                                      
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- Insert or update vendor
+CREATE PROCEDURE sp_UpsertVendor
+    @VendorId INT OUTPUT,
+    @VendorTypeId INT,
+    @VendorName NVARCHAR(100),
+    @VendorCode NVARCHAR(20),
+    @TaxId NVARCHAR(20) = NULL,
+    @Website NVARCHAR(255) = NULL,
+    @Emai
+
+(1 rows affected)

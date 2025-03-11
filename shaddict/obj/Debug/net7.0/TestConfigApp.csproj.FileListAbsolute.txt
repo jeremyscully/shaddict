@@ -1,0 +1,5 @@
+D:\src\auto-jeremy\shaddict\obj\Debug\net7.0\TestConfigApp.csproj.AssemblyReference.cache
+D:\src\auto-jeremy\shaddict\obj\Debug\net7.0\TestConfigApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\src\auto-jeremy\shaddict\obj\Debug\net7.0\TestConfigApp.AssemblyInfoInputs.cache
+D:\src\auto-jeremy\shaddict\obj\Debug\net7.0\TestConfigApp.AssemblyInfo.cs
+D:\src\auto-jeremy\shaddict\obj\Debug\net7.0\TestConfigApp.csproj.CoreCompileInputs.cache

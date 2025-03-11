@@ -1,0 +1,84 @@
+Starting test data insertion...
+Checking domain data...
+VendorType data already exists.
+PurchaseOrderType data already exists.
+InvoiceStatus data already exists.
+Inserting test vendors...
+Inserting Vendor 1...
+
+(1 rows affected)
+Vendor 1 inserted with ID: 2
+Inserting Vendor 2...
+
+(1 rows affected)
+Vendor 2 inserted with ID: 3
+Inserting Vendor 3...
+
+(1 rows affected)
+Vendor 3 inserted with ID: 4
+Inserting test purchase orders...
+Inserting Purchase Order 1...
+
+(1 rows affected)
+Purchase Order 1 inserted with ID: 1
+Inserting Purchase Order 2...
+
+(1 rows affected)
+Purchase Order 2 inserted with ID: 2
+Inserting Purchase Order 3...
+
+(1 rows affected)
+Purchase Order 3 inserted with ID: 3
+Inserting purchase order items...
+Inserting PO Item 1...
+
+(1 rows affected)
+PO Item 1 inserted with ID: 1
+Inserting PO Item 2...
+
+(1 rows affected)
+PO Item 2 inserted with ID: 2
+Inserting PO Item 3...
+
+(1 rows affected)
+PO Item 3 inserted with ID: 3
+Inserting PO Item 4...
+
+(1 rows affected)
+PO Item 4 inserted with ID: 4
+Inserting PO Item 5...
+
+(1 rows affected)
+PO Item 5 inserted with ID: 5
+Inserting test invoices...
+Inserting Invoice 1...
+
+(1 rows affected)
+Invoice 1 inserted with ID: 1
+Inserting Invoice 2...
+
+(1 rows affected)
+Invoice 2 inserted with ID: 2
+Inserting Invoice 3...
+
+(1 rows affected)
+Invoice 3 inserted with ID: 3
+Inserting invoice items...
+Inserting Invoice Item 1...
+
+(1 rows affected)
+Invoice Item 1 inserted with ID: 1
+Inserting Invoice Item 2...
+
+(1 rows affected)
+Invoice Item 2 inserted with ID: 2
+Inserting Invoice Item 3...
+
+(1 rows affected)
+Invoice Item 3 inserted with ID: 3
+Inserting Invoice Item 4...
+
+(1 rows affected)
+Invoice Item 4 inserted with ID: 4
+Test data has been successfully inserted.
+Inserted 3 vendors, 3 purchase orders, 5 purchase order items, 3 invoices, and 4 invoice items.

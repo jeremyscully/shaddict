@@ -1,0 +1,9 @@
+ROUTINE_NAME                                                                                                                    
+--------------------------------------------------------------------------------------------------------------------------------
+sp_InsertInvoiceItem                                                                                                            
+sp_InsertPurchaseOrderItem                                                                                                      
+sp_UpsertInvoice                                                                                                                
+sp_UpsertPurchaseOrder                                                                                                          
+sp_UpsertVendor                                                                                                                 
+
+(5 rows affected)

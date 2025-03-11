@@ -1,0 +1,38 @@
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Transitus</h1>
+    <p class="lead">Your comprehensive business management solution</p>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-people-fill"></i> Vendors</h5>
+                <p class="card-text">Manage your vendors and suppliers efficiently.</p>
+                <a asp-controller="Vendors" asp-action="Index" class="btn btn-primary">View Vendors</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-file-earmark-text"></i> Invoices</h5>
+                <p class="card-text">Track and manage all your invoices in one place.</p>
+                <a href="#" class="btn btn-primary disabled">Coming Soon</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-cart-fill"></i> Purchase Orders</h5>
+                <p class="card-text">Create and track purchase orders efficiently.</p>
+                <a href="#" class="btn btn-primary disabled">Coming Soon</a>
+            </div>
+        </div>
+    </div>
+</div> 

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "XWTSyxTvBQiQm4SGeLGGY8gX1iWH7pZ9HDzFyeEunJM=",
+  "Source": "TransitusWeb",
+  "BasePath": "_content/TransitusWeb",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

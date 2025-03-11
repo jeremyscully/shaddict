@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&D Beyond Clone</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #1a1a1a;
+            background-image: url('https://www.dndbeyond.com/content/1-0-2421-0/skins/waterdeep/images/background-texture.png');
+            color: #fff;
+        }
+        
+        /* Header styles */
+        .top-bar {
+            background-color: #e74c3c;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+        
+        .dismiss-btn {
+            background-color: white;
+            color: #333;
+            border: none;
+            padding: 2px 10px;
+            border-radius: 3px;
+            margin-left: 10px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        
+        .header {
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+        }
+        
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #333;
+            border-radius: 20px;
+            padding: 5px 15px;
+            margin: 0 20px;
+            flex-grow: 1;
+            max-width: 400px;
+        }
+        
+        .search-bar input {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 5px;
+            width: 100%;
+            outline: none;
+        }
+        
+        .search-bar i {
+            color: #999;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: #ccc;
+            text-decoration: none;
+        }
+        
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 20px;
+        }
+        
+        .user-profile img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #e74c3c;
+        }
+        
+        /* Navigation */
+        .main-nav {
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+        }
+        
+        .nav-item {
+            color: #ccc;
+            text-decoration: none;
+            padding: 5px 15px;
+            font-size: 14px;
+            position: relative;
+        }
+        
+        .nav-item:hover {
+            color: white;
+        }
+        
+        .nav-item::after {
+            content: "▼";
+            font-size: 8px;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+        
+        /* Hero sections */
+        .hero-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero-large {
+            flex-basis: 100%;
+            height: 350px;
+            background-image: url('https://www.dndbeyond.com/attachments/thumbnails/0/882/850/574/tiamat2.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-small {
+            flex-basis: calc(50% - 10px);
+            height: 200px;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-small:first-of-type {
+            background-image: url('https://www.dndbeyond.com/attachments/thumbnails/0/439/850/574/monsterheader.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero-small:last-of-type {
+            background-image: url('https://www.dndbeyond.com/attachments/thumbnails/0/723/850/574/mapheader.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+        }
+        
+        .hero-large .hero-content {
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .hero-large .hero-title {
+            font-size: 32px;
+        }
+        
+        .hero-badge {
+            background-color: #3498db;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        .hero-btn {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        /* Feature boxes */
+        .feature-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 20px;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-box {
+            flex-basis: calc(25% - 10px);
+            background-color: #222;
+            border-radius: 5px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .feature-box:hover {
+            background-color: #333;
+        }
+        
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #444;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        
+        .feature-title {
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        /* Footer section */
+        .footer-section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .footer-title {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-small {
+                flex-basis: 100%;
+            }
+            
+            .feature-box {
+                flex-basis: calc(50% - 10px);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .feature-box {
+                flex-basis: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top notification bar -->
+    <div class="top-bar">
+        D&D Beyond will be down for maintenance on Mar 10th from about 3 AM to 8 AM Eastern.
+        <button class="dismiss-btn">DISMISS</button>
+    </div>
+    
+    <!-- Header with logo and search -->
+    <header class="header">
+        <div class="logo">
+            <img src="https://www.dndbeyond.com/content/1-0-2421-0/skins/waterdeep/images/ddb-logo.png" alt="D&D Beyond">
+        </div>
+        
+        <div class="search-bar">
+            <i class="fa fa-search"></i>
+            <input type="text" placeholder="Search Everything...">
+        </div>
+        
+        <div class="social-icons">
+            <a href="#"><i class="fa fa-discord"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-youtube"></i></a>
+            <a href="#"><i class="fa fa-tiktok"></i></a>
+        </div>
+        
+        <div class="user-profile">
+            <img src="#" alt="User">
+            <span>Lolborn71</span>
+        </div>
+    </header>
+    
+    <!-- Main navigation -->
+    <nav class="main-nav">
+        <a href="#" class="nav-item">Collections</a>
+        <a href="#" class="nav-item">Game Rules</a>
+        <a href="#" class="nav-item">Sources</a>
+        <a href="#" class="nav-item">Tools</a>
+        <a href="#" class="nav-item">Media</a>
+        <a href="#" class="nav-item">Forums</a>
+        <a href="#" class="nav-item">Learn to Play</a>
+        <a href="#" class="nav-item">Subscribe</a>
+        <a href="#" class="nav-item">Marketplace</a>
+    </nav>
+    
+    <!-- Hero sections -->
+    <div class="hero-container">
+        <!-- Large hero banner -->
+        <div class="hero-large">
+            <div class="hero-content">
+                <h2 class="hero-title">START YOUR ADVENTURE WITH THE<br>COMPLETE CORE RULEBOOK COLLECTION</h2>
+                <button class="hero-btn">SAVE $60</button>
+            </div>
+        </div>
+        
+        <!-- Small hero banners -->
+        <div class="hero-small">
+            <div class="hero-content">
+                <span class="hero-badge">BUNDLE & SAVE</span>
+                <h3 class="hero-title">Check out 500+ monsters in the Monster Manual</h3>
+            </div>
+        </div>
+        
+        <div class="hero-small">
+            <div class="hero-content">
+                <span class="hero-badge">MASTER TIER</span>
+                <h3 class="hero-title">Find the perfect monsters with improved search in the Maps VTT</h3>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Feature boxes -->
+    <div class="feature-container">
+        <div class="feature-box">
+            <div class="feature-icon">👤</div>
+            <div class="feature-title">CREATE A CHARACTER</div>
+        </div>
+        
+        <div class="feature-box">
+            <div class="feature-icon">🛒</div>
+            <div class="feature-title">BROWSE THE MARKETPLACE</div>
+        </div>
+        
+        <div class="feature-box">
+            <div class="feature-icon">💎</div>
+            <div class="feature-title">SUBSCRIPTION BENEFITS</div>
+        </div>
+        
+        <div class="feature-box">
+            <div class="feature-icon">🗺️</div>
+            <div class="feature-title">DISCOVER MAPS</div>
+        </div>
+    </div>
+    
+    <!-- Footer section -->
+    <div class="footer-section">
+        <h2 class="footer-title">What is Sigil? D&D's New Immersive 3D VTT</h2>
+    </div>
+    
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <script>
+        // Simple script to handle the dismiss button
+        document.querySelector('.dismiss-btn').addEventListener('click', function() {
+            document.querySelector('.top-bar').style.display = 'none';
+        });
+    </script>
+</body>
+</html> 

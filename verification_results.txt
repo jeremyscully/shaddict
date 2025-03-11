@@ -1,0 +1,112 @@
+Verifying test data in Transitus database...
+--- Domain Data ---
+VendorType count:
+VendorTypeCount
+---------------
+              5
+
+(1 rows affected)
+PurchaseOrderType count:
+PurchaseOrderTypeCount
+----------------------
+                     5
+
+(1 rows affected)
+InvoiceStatus count:
+InvoiceStatusCount
+------------------
+                 9
+
+(1 rows affected)
+--- Main Tables ---
+Vendor count:
+VendorCount
+-----------
+          4
+
+(1 rows affected)
+Test vendors:
+VendorId    VendorName                                                                                           VendorCode          
+----------- ---------------------------------------------------------------------------------------------------- --------------------
+          2 Test Office Supplies Inc.                                                                            TEST-OS-001         
+          3 Test IT Solutions LLC                                                                                TEST-IT-001         
+          4 Test Marketing Experts                                                                               TEST-MK-001         
+
+(3 rows affected)
+PurchaseOrder count:
+PurchaseOrderCount
+------------------
+                 3
+
+(1 rows affected)
+Test purchase orders:
+PurchaseOrderId PurchaseOrderNumber  VendorId   
+--------------- -------------------- -----------
+              1 PO-TEST-001                    2
+              2 PO-TEST-002                    3
+              3 PO-TEST-003                    4
+
+(3 rows affected)
+PurchaseOrderItem count:
+PurchaseOrderItemCount
+----------------------
+                     5
+
+(1 rows affected)
+Test purchase order items:
+PurchaseOrderItemId PurchaseOrderId ItemNumber                                         Description                                                                                                                                                                                                                                                    
+------------------- --------------- -------------------------------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                  1               1 PAPER-A4                                           Premium A4 Paper, 500 sheets                                                                                                                                                                                                                                   
+                  2               1 PEN-BLU                                            Blue Ballpoint Pens                                                                                                                                                                                                                                            
+                  3               2 LAPTOP-PRO                                         Professional Laptop, 16GB RAM, 512GB SSD                                                                                                                                                                                                                       
+                  4               3 BROCHURE-A                                         Full Color Brochures, Tri-fold                                                                                                                                                                                                                                 
+                  5               3 BANNER-L                                           Large Format Banner, 3x6 feet                                                                                                                                                                                                                                  
+
+(5 rows affected)
+Invoice count:
+InvoiceCount
+------------
+           3
+
+(1 rows affected)
+Test invoices:
+InvoiceId   InvoiceNumber        VendorId    PurchaseOrderId
+----------- -------------------- ----------- ---------------
+          1 INV-TEST-001                   2               1
+          2 INV-TEST-002                   3               2
+          3 INV-TEST-003                   3               2
+
+(3 rows affected)
+InvoiceItem count:
+InvoiceItemCount
+----------------
+               4
+
+(1 rows affected)
+Test invoice items:
+InvoiceItemId InvoiceId   ItemNumber                                         Description                                                                                                                                                                                                                                                    
+------------- ----------- -------------------------------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            1           1 PAPER-A4                                           Premium A4 Paper, 500 sheets                                                                                                                                                                                                                                   
+            2           1 PEN-BLU                                            Blue Ballpoint Pens                                                                                                                                                                                                                                            
+            3           2 LAPTOP-PRO                                         Professional Laptop, 16GB RAM, 512GB SSD                                                                                                                                                                                                                       
+            4           3 LAPTOP-PRO                                         Professional Laptop, 16GB RAM, 512GB SSD                                                                                                                                                                                                                       
+
+(4 rows affected)
+--- Relationship Verification ---
+Purchase Orders with Vendor names:
+PurchaseOrderId PurchaseOrderNumber  VendorName                                                                                          
+--------------- -------------------- ----------------------------------------------------------------------------------------------------
+              1 PO-TEST-001          Test Office Supplies Inc.                                                                           
+              2 PO-TEST-002          Test IT Solutions LLC                                                                               
+              3 PO-TEST-003          Test Marketing Experts                                                                              
+
+(3 rows affected)
+Invoices with Vendor names and Purchase Order numbers:
+InvoiceId   InvoiceNumber        VendorName                                                                                           PurchaseOrderNumber 
+----------- -------------------- ---------------------------------------------------------------------------------------------------- --------------------
+          1 INV-TEST-001         Test Office Supplies Inc.                                                                            PO-TEST-001         
+          2 INV-TEST-002         Test IT Solutions LLC                                                                                PO-TEST-002         
+          3 INV-TEST-003         Test IT Solutions LLC                                                                                PO-TEST-002         
+
+(3 rows affected)
+Test data verification complete.

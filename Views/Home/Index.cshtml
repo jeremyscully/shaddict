@@ -1,0 +1,76 @@
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container py-4">
+    <!-- Header with welcome message -->
+    <div class="p-4 mb-4 bg-light rounded-3 shadow-sm">
+        <div class="container-fluid py-3">
+            <h1 class="display-5 fw-bold">Welcome to Transitus</h1>
+            <p class="col-md-8 fs-4">Your complete vendor management solution for streamlined operations and enhanced productivity.</p>
+            <a class="btn btn-primary btn-lg" asp-controller="Vendors" asp-action="Index">
+                <i class="bi bi-building me-2"></i>Manage Vendors
+            </a>
+        </div>
+    </div>
+
+    <!-- Dashboard cards -->
+    <div class="row g-4 py-3">
+        <!-- Quick Stats Card -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title mb-0"><i class="bi bi-graph-up me-2"></i>Quick Stats</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>Total Vendors:</span>
+                        <span class="badge bg-primary rounded-pill">0</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>Active Vendors:</span>
+                        <span class="badge bg-success rounded-pill">0</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span>Pending Reviews:</span>
+                        <span class="badge bg-warning rounded-pill">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activity Card -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-header bg-info text-white">
+                    <h5 class="card-title mb-0"><i class="bi bi-clock-history me-2"></i>Recent Activity</h5>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted text-center my-5">No recent activity to display.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions Card -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h5 class="card-title mb-0"><i class="bi bi-lightning-charge me-2"></i>Quick Actions</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a href="#" class="btn btn-outline-primary">
+                            <i class="bi bi-plus-circle me-2"></i>Add New Vendor
+                        </a>
+                        <a href="#" class="btn btn-outline-secondary">
+                            <i class="bi bi-search me-2"></i>Search Vendors
+                        </a>
+                        <a href="#" class="btn btn-outline-info">
+                            <i class="bi bi-file-earmark-text me-2"></i>Generate Reports
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

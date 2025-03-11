@@ -1,0 +1,498 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TransitusAPI</name>
+    </assembly>
+    <members>
+        <member name="T:TransitusAPI.Controllers.PurchaseOrdersController">
+            <summary>
+            API controller for purchase order operations
+            </summary>
+        </member>
+        <member name="M:TransitusAPI.Controllers.PurchaseOrdersController.#ctor(TransitusAPI.Data.IPurchaseOrderRepository,Microsoft.Extensions.Logging.ILogger{TransitusAPI.Controllers.PurchaseOrdersController})">
+            <summary>
+            Initializes a new instance of the PurchaseOrdersController class
+            </summary>
+            <param name="purchaseOrderRepository">The purchase order repository</param>
+            <param name="logger">The logger</param>
+        </member>
+        <member name="M:TransitusAPI.Controllers.PurchaseOrdersController.GetPurchaseOrders">
+            <summary>
+            Gets all purchase orders
+            </summary>
+            <returns>A collection of purchase orders</returns>
+        </member>
+        <member name="M:TransitusAPI.Controllers.PurchaseOrdersController.GetPurchaseOrder(System.Int32)">
+            <summary>
+            Gets a purchase order by ID
+            </summary>
+            <param name="id">The purchase order ID</param>
+            <returns>The purchase order if found</returns>
+        </member>
+        <member name="M:TransitusAPI.Controllers.PurchaseOrdersController.GetPurchaseOrdersByVendorId(System.Int32)">
+            <summary>
+            Gets purchase orders by vendor ID
+            </summary>
+            <param name="vendorId">The vendor ID</param>
+            <returns>A collection of purchase orders for the specified vendor</returns>
+        </member>
+        <member name="M:TransitusAPI.Controllers.PurchaseOrdersController.CreatePurchaseOrder(TransitusAPI.Models.PurchaseOrder)">
+            <summary>
+            Creates a new purchase order
+            </summary>
+            <param name="purchaseOrder">The purchase order to create</param>
+            <returns>The created purchase order</returns>
+        </member>
+        <member name="M:TransitusAPI.Controllers.PurchaseOrdersController.UpdatePurchaseOrder(System.Int32,TransitusAPI.Models.PurchaseOrder)">
+            <summary>
+            Updates an existing purchase order
+            </summary>
+            <param name="id">The purchase order ID</param>
+            <param name="purchaseOrder">The updated purchase order data</param>
+            <returns>No content if successful</returns>
+        </member>
+        <member name="M:TransitusAPI.Controllers.PurchaseOrdersController.DeletePurchaseOrder(System.Int32)">
+            <summary>
+            Deletes a purchase order
+            </summary>
+            <param name="id">The purchase order ID to delete</param>
+            <returns>No content if successful</returns>
+        </member>
+        <member name="T:TransitusAPI.Controllers.VendorsController">
+            <summary>
+            API controller for vendor operations
+            </summary>
+        </member>
+        <member name="M:TransitusAPI.Controllers.VendorsController.#ctor(TransitusAPI.Data.IVendorRepository,Microsoft.Extensions.Logging.ILogger{TransitusAPI.Controllers.VendorsController})">
+            <summary>
+            Initializes a new instance of the VendorsController class
+            </summary>
+            <param name="vendorRepository">The vendor repository</param>
+            <param name="logger">The logger</param>
+        </member>
+        <member name="M:TransitusAPI.Controllers.VendorsController.GetVendors">
+            <summary>
+            Gets all vendors
+            </summary>
+            <returns>A collection of vendors</returns>
+        </member>
+        <member name="M:TransitusAPI.Controllers.VendorsController.GetVendor(System.Int32)">
+            <summary>
+            Gets a vendor by ID
+            </summary>
+            <param name="id">The vendor ID</param>
+            <returns>The vendor if found</returns>
+        </member>
+        <member name="M:TransitusAPI.Controllers.VendorsController.CreateVendor(TransitusAPI.Models.Vendor)">
+            <summary>
+            Creates a new vendor
+            </summary>
+            <param name="vendor">The vendor to create</param>
+            <returns>The created vendor</returns>
+        </member>
+        <member name="M:TransitusAPI.Controllers.VendorsController.UpdateVendor(System.Int32,TransitusAPI.Models.Vendor)">
+            <summary>
+            Updates an existing vendor
+            </summary>
+            <param name="id">The vendor ID</param>
+            <param name="vendor">The updated vendor data</param>
+            <returns>No content if successful</returns>
+        </member>
+        <member name="M:TransitusAPI.Controllers.VendorsController.DeleteVendor(System.Int32)">
+            <summary>
+            Deletes a vendor by ID
+            </summary>
+            <param name="id">The vendor ID</param>
+            <returns>No content if successful</returns>
+        </member>
+        <member name="T:TransitusAPI.Data.DatabaseConnection">
+            <summary>
+            Provides database connection functionality for the Transitus application
+            </summary>
+        </member>
+        <member name="M:TransitusAPI.Data.DatabaseConnection.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the DatabaseConnection class
+            </summary>
+            <param name="configuration">The application configuration containing connection strings</param>
+        </member>
+        <member name="M:TransitusAPI.Data.DatabaseConnection.CreateConnection">
+            <summary>
+            Creates and returns a new SQL connection
+            </summary>
+            <returns>An open SQL connection</returns>
+        </member>
+        <member name="T:TransitusAPI.Data.IPurchaseOrderRepository">
+            <summary>
+            Interface for purchase order data access
+            </summary>
+        </member>
+        <member name="M:TransitusAPI.Data.IPurchaseOrderRepository.GetAllPurchaseOrdersAsync">
+            <summary>
+            Get all purchase orders
+            </summary>
+            <returns>List of purchase orders</returns>
+        </member>
+        <member name="M:TransitusAPI.Data.IPurchaseOrderRepository.GetPurchaseOrderByIdAsync(System.Int32)">
+            <summary>
+            Get a purchase order by ID
+            </summary>
+            <param name="id">Purchase order ID</param>
+            <returns>Purchase order if found, null otherwise</returns>
+        </member>
+        <member name="M:TransitusAPI.Data.IPurchaseOrderRepository.GetPurchaseOrdersByVendorIdAsync(System.Int32)">
+            <summary>
+            Get purchase orders by vendor ID
+            </summary>
+            <param name="vendorId">Vendor ID</param>
+            <returns>List of purchase orders for the specified vendor</returns>
+        </member>
+        <member name="M:TransitusAPI.Data.IPurchaseOrderRepository.CreatePurchaseOrderAsync(TransitusAPI.Models.PurchaseOrder)">
+            <summary>
+            Create a new purchase order
+            </summary>
+            <param name="purchaseOrder">Purchase order to create</param>
+            <returns>Created purchase order with ID</returns>
+        </member>
+        <member name="M:TransitusAPI.Data.IPurchaseOrderRepository.UpdatePurchaseOrderAsync(TransitusAPI.Models.PurchaseOrder)">
+            <summary>
+            Update an existing purchase order
+            </summary>
+            <param name="purchaseOrder">Purchase order to update</param>
+            <returns>True if updated, false otherwise</returns>
+        </member>
+        <member name="M:TransitusAPI.Data.IPurchaseOrderRepository.DeletePurchaseOrderAsync(System.Int32)">
+            <summary>
+            Delete a purchase order
+            </summary>
+            <param name="id">Purchase order ID to delete</param>
+            <returns>True if deleted, false otherwise</returns>
+        </member>
+        <member name="T:TransitusAPI.Data.IVendorRepository">
+            <summary>
+            Interface for vendor data operations
+            </summary>
+        </member>
+        <member name="M:TransitusAPI.Data.IVendorRepository.GetAllVendorsAsync">
+            <summary>
+            Gets all vendors
+            </summary>
+            <returns>A collection of vendors</returns>
+        </member>
+        <member name="M:TransitusAPI.Data.IVendorRepository.GetVendorByIdAsync(System.Int32)">
+            <summary>
+            Gets a vendor by ID
+            </summary>
+            <param name="id">The vendor ID</param>
+            <returns>The vendor if found, null otherwise</returns>
+        </member>
+        <member name="M:TransitusAPI.Data.IVendorRepository.CreateVendorAsync(TransitusAPI.Models.Vendor)">
+            <summary>
+            Creates a new vendor
+            </summary>
+            <param name="vendor">The vendor to create</param>
+            <returns>The ID of the created vendor</returns>
+        </member>
+        <member name="M:TransitusAPI.Data.IVendorRepository.UpdateVendorAsync(TransitusAPI.Models.Vendor)">
+            <summary>
+            Updates an existing vendor
+            </summary>
+            <param name="vendor">The vendor to update</param>
+            <returns>True if successful, false otherwise</returns>
+        </member>
+        <member name="M:TransitusAPI.Data.IVendorRepository.DeleteVendorAsync(System.Int32)">
+            <summary>
+            Deletes a vendor by ID
+            </summary>
+            <param name="id">The vendor ID</param>
+            <returns>True if successful, false otherwise</returns>
+        </member>
+        <member name="T:TransitusAPI.Data.PurchaseOrderRepository">
+            <summary>
+            Repository for purchase order data operations
+            </summary>
+        </member>
+        <member name="M:TransitusAPI.Data.PurchaseOrderRepository.#ctor(TransitusAPI.Data.DatabaseConnection)">
+            <summary>
+            Initializes a new instance of the PurchaseOrderRepository class
+            </summary>
+            <param name="dbConnection">The database connection</param>
+        </member>
+        <member name="M:TransitusAPI.Data.PurchaseOrderRepository.GetAllPurchaseOrdersAsync">
+            <summary>
+            Gets all purchase orders
+            </summary>
+            <returns>A collection of purchase orders</returns>
+        </member>
+        <member name="M:TransitusAPI.Data.PurchaseOrderRepository.GetPurchaseOrderByIdAsync(System.Int32)">
+            <summary>
+            Gets a purchase order by ID
+            </summary>
+            <param name="id">The purchase order ID</param>
+            <returns>The purchase order if found, null otherwise</returns>
+        </member>
+        <member name="M:TransitusAPI.Data.PurchaseOrderRepository.GetPurchaseOrdersByVendorIdAsync(System.Int32)">
+            <summary>
+            Gets purchase orders by vendor ID
+            </summary>
+            <param name="vendorId">The vendor ID</param>
+            <returns>A collection of purchase orders for the specified vendor</returns>
+        </member>
+        <member name="M:TransitusAPI.Data.PurchaseOrderRepository.CreatePurchaseOrderAsync(TransitusAPI.Models.PurchaseOrder)">
+            <summary>
+            Creates a new purchase order
+            </summary>
+            <param name="purchaseOrder">The purchase order to create</param>
+            <returns>The created purchase order with ID</returns>
+        </member>
+        <member name="M:TransitusAPI.Data.PurchaseOrderRepository.UpdatePurchaseOrderAsync(TransitusAPI.Models.PurchaseOrder)">
+            <summary>
+            Updates an existing purchase order
+            </summary>
+            <param name="purchaseOrder">The purchase order to update</param>
+            <returns>True if updated, false otherwise</returns>
+        </member>
+        <member name="M:TransitusAPI.Data.PurchaseOrderRepository.DeletePurchaseOrderAsync(System.Int32)">
+            <summary>
+            Deletes a purchase order
+            </summary>
+            <param name="id">The purchase order ID to delete</param>
+            <returns>True if deleted, false otherwise</returns>
+        </member>
+        <member name="T:TransitusAPI.Data.VendorRepository">
+            <summary>
+            Repository for vendor data operations
+            </summary>
+        </member>
+        <member name="M:TransitusAPI.Data.VendorRepository.#ctor(TransitusAPI.Data.DatabaseConnection)">
+            <summary>
+            Initializes a new instance of the VendorRepository class
+            </summary>
+            <param name="dbConnection">The database connection</param>
+        </member>
+        <member name="M:TransitusAPI.Data.VendorRepository.GetAllVendorsAsync">
+            <summary>
+            Gets all vendors
+            </summary>
+            <returns>A collection of vendors</returns>
+        </member>
+        <member name="M:TransitusAPI.Data.VendorRepository.GetVendorByIdAsync(System.Int32)">
+            <summary>
+            Gets a vendor by ID
+            </summary>
+            <param name="id">The vendor ID</param>
+            <returns>The vendor if found, null otherwise</returns>
+        </member>
+        <member name="M:TransitusAPI.Data.VendorRepository.CreateVendorAsync(TransitusAPI.Models.Vendor)">
+            <summary>
+            Creates a new vendor
+            </summary>
+            <param name="vendor">The vendor to create</param>
+            <returns>The ID of the created vendor</returns>
+        </member>
+        <member name="M:TransitusAPI.Data.VendorRepository.UpdateVendorAsync(TransitusAPI.Models.Vendor)">
+            <summary>
+            Updates an existing vendor
+            </summary>
+            <param name="vendor">The vendor to update</param>
+            <returns>True if successful, false otherwise</returns>
+        </member>
+        <member name="M:TransitusAPI.Data.VendorRepository.DeleteVendorAsync(System.Int32)">
+            <summary>
+            Deletes a vendor by ID
+            </summary>
+            <param name="id">The vendor ID</param>
+            <returns>True if successful, false otherwise</returns>
+        </member>
+        <member name="T:TransitusAPI.Models.Invoice">
+            <summary>
+            Represents an invoice in the Transitus system
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.Invoice.InvoiceId">
+            <summary>
+            The unique identifier for the invoice
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.Invoice.VendorId">
+            <summary>
+            The vendor ID associated with this invoice
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.Invoice.PurchaseOrderId">
+            <summary>
+            The purchase order ID associated with this invoice (if any)
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.Invoice.InvoiceNumber">
+            <summary>
+            The invoice number from the vendor
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.Invoice.InvoiceDate">
+            <summary>
+            The date of the invoice
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.Invoice.DueDate">
+            <summary>
+            The due date for payment
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.Invoice.TotalAmount">
+            <summary>
+            The total amount of the invoice
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.Invoice.PaidAmount">
+            <summary>
+            The amount paid so far
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.Invoice.Status">
+            <summary>
+            The status of the invoice (e.g., Pending, Approved, Paid, Rejected)
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.Invoice.Notes">
+            <summary>
+            Notes about the invoice
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.Invoice.CreatedDate">
+            <summary>
+            The date the invoice was created in the system
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.Invoice.CreatedBy">
+            <summary>
+            The user who created the invoice record
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.Invoice.ModifiedDate">
+            <summary>
+            The date the invoice was last modified
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.Invoice.ModifiedBy">
+            <summary>
+            The user who last modified the invoice
+            </summary>
+        </member>
+        <member name="T:TransitusAPI.Models.PurchaseOrder">
+            <summary>
+            Represents a purchase order in the Transitus system
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.PurchaseOrder.PurchaseOrderId">
+            <summary>
+            The unique identifier for the purchase order
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.PurchaseOrder.VendorId">
+            <summary>
+            The vendor ID associated with this purchase order
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.PurchaseOrder.PONumber">
+            <summary>
+            The purchase order number
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.PurchaseOrder.OrderDate">
+            <summary>
+            The date the purchase order was issued
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.PurchaseOrder.ExpectedDeliveryDate">
+            <summary>
+            The expected delivery date
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.PurchaseOrder.Status">
+            <summary>
+            The status of the purchase order (e.g., Draft, Submitted, Approved, Received)
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.PurchaseOrder.TotalAmount">
+            <summary>
+            The total amount of the purchase order
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.PurchaseOrder.Notes">
+            <summary>
+            Notes about the purchase order
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.PurchaseOrder.CreatedDate">
+            <summary>
+            The date the purchase order was created in the system
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.PurchaseOrder.CreatedBy">
+            <summary>
+            The user who created the purchase order
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.PurchaseOrder.ModifiedDate">
+            <summary>
+            The date the purchase order was last modified
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.PurchaseOrder.ModifiedBy">
+            <summary>
+            The user who last modified the purchase order
+            </summary>
+        </member>
+        <member name="T:TransitusAPI.Models.Vendor">
+            <summary>
+            Represents a vendor in the Transitus system
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.Vendor.VendorId">
+            <summary>
+            The unique identifier for the vendor
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.Vendor.Name">
+            <summary>
+            The name of the vendor
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.Vendor.ContactPerson">
+            <summary>
+            The vendor's contact person
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.Vendor.Email">
+            <summary>
+            The vendor's email address
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.Vendor.Phone">
+            <summary>
+            The vendor's phone number
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.Vendor.Address">
+            <summary>
+            The vendor's address
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.Vendor.TaxId">
+            <summary>
+            The vendor's tax identification number
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.Vendor.Notes">
+            <summary>
+            Notes about the vendor
+            </summary>
+        </member>
+        <member name="P:TransitusAPI.Models.Vendor.IsActive">
+            <summary>
+            Indicates if the vendor is active
+            </summary>
+        </member>
+    </members>
+</doc>
