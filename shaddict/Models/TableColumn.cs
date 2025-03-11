@@ -58,6 +58,17 @@ namespace Shaddict.Models
         public bool IsForeignKey { get; set; }
 
         /// <summary>
+        /// Default value for the column
+        /// </summary>
+        [StringLength(200)]
+        public string DefaultValue { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Ordinal position of the column in the table
+        /// </summary>
+        public int OrdinalPosition { get; set; }
+
+        /// <summary>
         /// Description of the column
         /// </summary>
         [StringLength(500)]

@@ -43,31 +43,36 @@ namespace Shaddict.Data
                     Schema = "fin", 
                     Name = "Transactions", 
                     Description = "Financial transactions", 
-                    EntityId = entities[0].Id 
+                    EntityId = entities[0].Id,
+                    CreatedDate = DateTime.Now
                 },
                 new DatabaseTable { 
                     Schema = "fin", 
                     Name = "Accounts", 
                     Description = "Financial accounts", 
-                    EntityId = entities[0].Id 
+                    EntityId = entities[0].Id,
+                    CreatedDate = DateTime.Now
                 },
                 new DatabaseTable { 
                     Schema = "hr", 
                     Name = "Employees", 
                     Description = "Employee information", 
-                    EntityId = entities[1].Id 
+                    EntityId = entities[1].Id,
+                    CreatedDate = DateTime.Now
                 },
                 new DatabaseTable { 
                     Schema = "sales", 
                     Name = "Orders", 
                     Description = "Customer orders", 
-                    EntityId = entities[2].Id 
+                    EntityId = entities[2].Id,
+                    CreatedDate = DateTime.Now
                 },
                 new DatabaseTable { 
                     Schema = "sales", 
                     Name = "Customers", 
                     Description = "Customer information", 
-                    EntityId = entities[2].Id 
+                    EntityId = entities[2].Id,
+                    CreatedDate = DateTime.Now
                 }
             };
 
@@ -84,14 +89,18 @@ namespace Shaddict.Data
                     IsNullable = false, 
                     IsPrimaryKey = true, 
                     Description = "Unique identifier for the transaction", 
-                    TableId = tables[0].Id 
+                    TableId = tables[0].Id,
+                    DefaultValue = "",
+                    OrdinalPosition = 1
                 },
                 new TableColumn { 
                     Name = "TransactionDate", 
                     DataType = "datetime", 
                     IsNullable = false, 
                     Description = "Date and time of the transaction", 
-                    TableId = tables[0].Id 
+                    TableId = tables[0].Id,
+                    DefaultValue = "GETDATE()",
+                    OrdinalPosition = 2
                 },
                 new TableColumn { 
                     Name = "Amount", 
@@ -101,7 +110,9 @@ namespace Shaddict.Data
                     IsNullable = false, 
                     Description = "Transaction amount", 
                     ExampleValues = "100.00, 250.50, 1000.00", 
-                    TableId = tables[0].Id 
+                    TableId = tables[0].Id,
+                    DefaultValue = "0.00",
+                    OrdinalPosition = 3
                 },
                 
                 // Accounts table columns
@@ -111,7 +122,9 @@ namespace Shaddict.Data
                     IsNullable = false, 
                     IsPrimaryKey = true, 
                     Description = "Unique identifier for the account", 
-                    TableId = tables[1].Id 
+                    TableId = tables[1].Id,
+                    DefaultValue = "",
+                    OrdinalPosition = 1
                 },
                 new TableColumn { 
                     Name = "AccountName", 
@@ -119,7 +132,9 @@ namespace Shaddict.Data
                     MaxLength = 100, 
                     IsNullable = false, 
                     Description = "Name of the account", 
-                    TableId = tables[1].Id 
+                    TableId = tables[1].Id,
+                    DefaultValue = "",
+                    OrdinalPosition = 2
                 },
                 
                 // Employees table columns
@@ -129,7 +144,9 @@ namespace Shaddict.Data
                     IsNullable = false, 
                     IsPrimaryKey = true, 
                     Description = "Unique identifier for the employee", 
-                    TableId = tables[2].Id 
+                    TableId = tables[2].Id,
+                    DefaultValue = "",
+                    OrdinalPosition = 1
                 },
                 new TableColumn { 
                     Name = "FirstName", 
@@ -137,7 +154,9 @@ namespace Shaddict.Data
                     MaxLength = 50, 
                     IsNullable = false, 
                     Description = "Employee's first name", 
-                    TableId = tables[2].Id 
+                    TableId = tables[2].Id,
+                    DefaultValue = "",
+                    OrdinalPosition = 2
                 },
                 new TableColumn { 
                     Name = "LastName", 
@@ -145,7 +164,9 @@ namespace Shaddict.Data
                     MaxLength = 50, 
                     IsNullable = false, 
                     Description = "Employee's last name", 
-                    TableId = tables[2].Id 
+                    TableId = tables[2].Id,
+                    DefaultValue = "",
+                    OrdinalPosition = 3
                 },
                 
                 // Orders table columns
@@ -155,14 +176,18 @@ namespace Shaddict.Data
                     IsNullable = false, 
                     IsPrimaryKey = true, 
                     Description = "Unique identifier for the order", 
-                    TableId = tables[3].Id 
+                    TableId = tables[3].Id,
+                    DefaultValue = "",
+                    OrdinalPosition = 1
                 },
                 new TableColumn { 
                     Name = "OrderDate", 
                     DataType = "datetime", 
                     IsNullable = false, 
                     Description = "Date and time of the order", 
-                    TableId = tables[3].Id 
+                    TableId = tables[3].Id,
+                    DefaultValue = "GETDATE()",
+                    OrdinalPosition = 2
                 },
                 new TableColumn { 
                     Name = "CustomerId", 
@@ -170,7 +195,9 @@ namespace Shaddict.Data
                     IsNullable = false, 
                     IsForeignKey = true, 
                     Description = "Foreign key to the customer", 
-                    TableId = tables[3].Id 
+                    TableId = tables[3].Id,
+                    DefaultValue = "",
+                    OrdinalPosition = 3
                 },
                 new TableColumn { 
                     Name = "TotalAmount", 
@@ -180,7 +207,9 @@ namespace Shaddict.Data
                     IsNullable = false, 
                     Description = "Total amount of the order", 
                     ComputationFormula = "SUM(OrderItems.Price * OrderItems.Quantity)", 
-                    TableId = tables[3].Id 
+                    TableId = tables[3].Id,
+                    DefaultValue = "0.00",
+                    OrdinalPosition = 4
                 },
                 
                 // Customers table columns
@@ -190,7 +219,9 @@ namespace Shaddict.Data
                     IsNullable = false, 
                     IsPrimaryKey = true, 
                     Description = "Unique identifier for the customer", 
-                    TableId = tables[4].Id 
+                    TableId = tables[4].Id,
+                    DefaultValue = "",
+                    OrdinalPosition = 1
                 },
                 new TableColumn { 
                     Name = "CustomerName", 
@@ -198,7 +229,9 @@ namespace Shaddict.Data
                     MaxLength = 100, 
                     IsNullable = false, 
                     Description = "Name of the customer", 
-                    TableId = tables[4].Id 
+                    TableId = tables[4].Id,
+                    DefaultValue = "",
+                    OrdinalPosition = 2
                 },
                 new TableColumn { 
                     Name = "Email", 
@@ -206,7 +239,9 @@ namespace Shaddict.Data
                     MaxLength = 100, 
                     IsNullable = true, 
                     Description = "Customer's email address", 
-                    TableId = tables[4].Id 
+                    TableId = tables[4].Id,
+                    DefaultValue = "",
+                    OrdinalPosition = 3
                 }
             };
 

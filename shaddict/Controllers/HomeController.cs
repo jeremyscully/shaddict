@@ -35,9 +35,23 @@ namespace Shaddict.Controllers
                     TableCount = tableCount,
                     ColumnCount = columnCount,
                     RecentTables = await _context.DatabaseTables
-                        .Include(t => t.Entity)
                         .OrderByDescending(t => t.Id)
                         .Take(5)
+                        .Select(t => new DatabaseTable
+                        {
+                            Id = t.Id,
+                            Name = t.Name,
+                            Schema = t.Schema,
+                            Description = t.Description,
+                            EntityId = t.EntityId,
+                            CreatedDate = DateTime.Now,
+                            Entity = t.EntityId != null ? new Entity
+                            {
+                                Id = t.Entity.Id,
+                                Name = t.Entity.Name,
+                                Description = t.Entity.Description
+                            } : null
+                        })
                         .ToListAsync(),
                     EntitiesByTableCount = await _context.Entities
                         .Select(e => new EntityTableCount

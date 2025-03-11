@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -38,6 +39,11 @@ namespace Shaddict.Models
         /// </summary>
         [StringLength(500)]
         public string Description { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Date when the table was created in the data dictionary
+        /// </summary>
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
 
         /// <summary>
         /// Foreign key to the entity

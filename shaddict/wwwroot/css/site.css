@@ -1,5 +1,8 @@
+/* Base styles */
 html {
   font-size: 14px;
+  position: relative;
+  min-height: 100%;
 }
 
 @media (min-width: 768px) {
@@ -8,15 +11,330 @@ html {
   }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  margin-bottom: 60px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f4f8; /* Lighter blue-gray background */
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Layout styles */
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  min-height: 100vh;
+}
+
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  background: linear-gradient(135deg, #2c3e50 0%, #1a2a3a 100%); /* Gradient background */
+  color: #fff;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#sidebar.active {
+  margin-left: -250px;
+}
+
+#content {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sidebar styles */
+.sidebar-header {
+  padding: 20px;
+  background: linear-gradient(135deg, #1a2a3a 0%, #0f1c2a 100%); /* Darker gradient */
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-header h3 {
+  color: #fff;
+  margin-bottom: 0;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.sidebar-header p {
+  color: #4fc3f7; /* Light blue accent */
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+
+#sidebar ul.components {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  flex-grow: 1;
+}
+
+#sidebar ul li {
+  padding: 0;
+  margin-bottom: 5px;
+}
+
+#sidebar ul li a {
+  padding: 12px 20px;
+  font-size: 1.1em;
+  display: block;
+  color: #e0e0e0;
+  text-decoration: none;
+  transition: all 0.3s;
+  border-left: 4px solid transparent;
+}
+
+#sidebar ul li a:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #4fc3f7; /* Light blue accent */
+}
+
+#sidebar ul li.active > a {
+  color: #fff;
+  background: rgba(79, 195, 247, 0.2); /* Light blue with transparency */
+  border-left: 4px solid #4fc3f7; /* Light blue accent */
+}
+
+/* Navbar styles */
+.navbar {
+  padding: 15px 10px;
+  background: #fff;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-btn {
+  box-shadow: none;
+  outline: none !important;
+  border: none;
+}
+
+/* Button styles */
+.btn-info {
+  color: #fff;
+  background-color: #4fc3f7; /* Light blue accent */
+  border-color: #4fc3f7;
+}
+
+.btn-info:hover {
+  color: #fff;
+  background-color: #0288d1; /* Darker blue on hover */
+  border-color: #0288d1;
+}
+
+/* Card styles */
+.card {
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+  transition: all 0.3s;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+.card-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 1rem 1.25rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+/* Table styles */
+.table {
+  margin-bottom: 0;
+}
+
+.table th {
+  border-top: none;
+  background-color: #f0f4f8; /* Light blue-gray */
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.table tr:hover {
+  background-color: rgba(79, 195, 247, 0.05); /* Very light blue on hover */
+}
+
+/* Footer styles */
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+  background-color: #fff;
+  border-top: 1px solid #dee2e6;
+  margin-top: auto;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.03);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: -250px;
+  }
+  #sidebar.active {
+    margin-left: 0;
+  }
+  #sidebarCollapse span {
+    display: none;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4fc3f7; /* Light blue accent */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0288d1; /* Darker blue on hover */
+}
+
+/* Animation */
+.animate__animated {
+  animation-duration: 0.5s;
+}
+
+/* Chart styles */
+.chart-container {
+  position: relative;
+  height: 300px;
+  width: 100%;
+}
+
+/* Stats card */
+.stats-card {
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+  border-bottom: 3px solid #4fc3f7; /* Light blue accent */
+}
+
+.stats-card .stats-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #4fc3f7; /* Light blue accent */
+}
+
+.stats-card .stats-number {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.stats-card .stats-text {
+  font-size: 1rem;
+  color: #607d8b;
+}
+
+/* Quick actions */
+.quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.quick-action-btn {
+  flex: 1;
+  min-width: 150px;
+  padding: 1rem;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+  color: #2c3e50;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+
+.quick-action-btn:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+  border-bottom: 3px solid #4fc3f7; /* Light blue accent */
+  color: #0288d1;
+}
+
+/* Add colorful entity badges */
+.entity-badge {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.entity-badge-finance {
+  background-color: #4caf50; /* Green */
+  color: white;
+}
+
+.entity-badge-hr {
+  background-color: #ff9800; /* Orange */
+  color: white;
+}
+
+.entity-badge-sales {
+  background-color: #2196f3; /* Blue */
+  color: white;
+}
+
+.entity-badge-operations {
+  background-color: #9c27b0; /* Purple */
+  color: white;
+}
+
+/* Add colorful status indicators */
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.status-active {
+  background-color: #4caf50; /* Green */
+}
+
+.status-inactive {
+  background-color: #f44336; /* Red */
+}
+
+.status-pending {
+  background-color: #ff9800; /* Orange */
 }
