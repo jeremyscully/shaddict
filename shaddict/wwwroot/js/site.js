@@ -6,26 +6,24 @@
 $(document).ready(function () {
     console.log("Document ready, initializing sidebar toggle...");
     
-    // Toggle sidebar
-    $('#sidebarCollapse').on('click', function (e) {
+    // Toggle sidebar - simplified and more robust implementation
+    $(document).on('click', '#sidebarCollapse', function(e) {
         console.log("Sidebar toggle button clicked");
         e.preventDefault();
         $('#sidebar').toggleClass('active');
         
         // Add a visual feedback for the button
         $(this).toggleClass('active');
-        if ($(this).hasClass('active')) {
+        
+        // Update button text based on sidebar state
+        if ($('#sidebar').hasClass('active')) {
             $(this).find('span').text('Show Sidebar');
         } else {
-            $(this).find('span').text('Toggle Sidebar');
+            $(this).find('span').text('Hide Sidebar');
         }
-    });
-
-    // Alternative toggle method using jQuery
-    $(document).on('click', '#sidebarCollapse', function(e) {
-        console.log("Sidebar toggle clicked (alternative method)");
-        e.preventDefault();
-        $('#sidebar').toggleClass('active');
+        
+        // Log for debugging
+        console.log("Sidebar active state after click: " + $('#sidebar').hasClass('active'));
     });
 
     // Initialize tooltips
@@ -44,6 +42,14 @@ $(document).ready(function () {
     $('.card').addClass('animate__animated animate__fadeIn');
     
     // Log sidebar state for debugging
-    console.log("Sidebar active state: " + $('#sidebar').hasClass('active'));
+    console.log("Initial sidebar active state: " + $('#sidebar').hasClass('active'));
     console.log("Sidebar toggle button exists: " + ($('#sidebarCollapse').length > 0));
+    
+    // Ensure sidebar is visible by default on larger screens
+    if ($(window).width() > 768) {
+        $('#sidebar').removeClass('active');
+    } else {
+        // On mobile, start with sidebar hidden
+        $('#sidebar').addClass('active');
+    }
 });
